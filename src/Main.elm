@@ -75,9 +75,18 @@ view model =
 
 
 mixtureMonsters2ViewModel : MixtureMonsters -> MixtureViewModel
-mixtureMonsters2ViewModel mixtureMonsters =
+mixtureMonsters2ViewModel { pedigree, target } =
+    let
+        { pedigreeName, pedigreeClass } =
+            case pedigree of
+                Just (Monster name) ->
+                    { pedigreeName = name, pedigreeClass = "" }
+
+                Nothing ->
+                    { pedigreeName = "けっとう", pedigreeClass = "no-select" }
+    in
     MixtureViewModel
-        (MixtureMonsterViewModel "けっとう" "no-select")
+        (MixtureMonsterViewModel pedigreeName pedigreeClass)
         (MixtureMonsterViewModel "あいて" "no-select")
 
 
