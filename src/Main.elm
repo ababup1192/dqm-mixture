@@ -75,7 +75,9 @@ view model =
 
 mixtureMonsters2ViewModel : MixtureMonsters -> MixtureViewModel
 mixtureMonsters2ViewModel mixtureMonsters =
-    { pedigree = { text = "", className = "" }, target = { text = "", className = "" } }
+    MixtureViewModel
+        (MixtureMonsterViewModel "けっとう" "no-select")
+        (MixtureMonsterViewModel "あいて" "no-select")
 
 
 mixtureViewModel2View : MixtureViewModel -> Html Msg

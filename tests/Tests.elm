@@ -16,10 +16,9 @@ suite =
                         actual =
                             mixtureMonsters2ViewModel <| MixtureMonsters Nothing Nothing
                     in
-                    Expect.equal actual
-                        (MixtureViewModel
+                    Expect.equal actual <|
+                        MixtureViewModel
                             (MixtureMonsterViewModel "けっとう" "no-select")
                             (MixtureMonsterViewModel "あいて" "no-select")
-                        )
             ]
         ]
