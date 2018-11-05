@@ -54,6 +54,10 @@ update msg model =
     ( model, Cmd.none )
 
 
+
+---- VIEW MODEL ----
+
+
 type alias MixtureMonsterViewModel =
     { text : String, className : String }
 
@@ -72,6 +76,10 @@ view model =
         { pedigree = { text = "けっとう", className = "no-select" }
         , target = { text = "あいて", className = "no-select" }
         }
+
+
+
+---- PRESENTER ----
 
 
 mixtureMonsters2ViewModel : MixtureMonsters -> MixtureViewModel
