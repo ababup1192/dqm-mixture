@@ -1,4 +1,9 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing
+    ( MixtureMonsterViewModel
+    , MixtureMonsters
+    , MixtureViewModel
+    , mixtureMonsters2ViewModel
+    )
 
 import Browser
 import Html exposing (..)
@@ -63,8 +68,8 @@ type alias MixtureViewModel =
 view : Model -> Html Msg
 view model =
     mixtureViewModel2View
-        { pedigree = { text = "けっとう", className = " no-select" }
-        , target = { text = "あいて", className = " no-select" }
+        { pedigree = { text = "けっとう", className = "no-select" }
+        , target = { text = "あいて", className = "no-select" }
         }
 
 
@@ -76,12 +81,12 @@ mixtureMonsters2ViewModel mixtureMonsters =
 mixtureViewModel2View : MixtureViewModel -> Html Msg
 mixtureViewModel2View { pedigree, target } =
     div []
-        [ a [ class <| "button is-medium" ++ pedigree.className ]
+        [ a [ class <| "button is-medium " ++ pedigree.className ]
             [ text pedigree.text
             , span [ class "nav-icon" ] []
             ]
         , span [] [ text "X" ]
-        , a [ class <| "button is-medium" ++ target.className ]
+        , a [ class <| "button is-medium " ++ target.className ]
             [ text target.text
             , span [ class "nav-icon" ] []
             ]

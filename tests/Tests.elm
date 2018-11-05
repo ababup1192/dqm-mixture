@@ -2,35 +2,24 @@ module Tests exposing (suite)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
+import Main exposing (..)
 import Test exposing (..)
 
 
 suite : Test
 suite =
-    describe "The String module"
-        [ describe "String.reverse"
-            -- Nest as many descriptions as you like.
-            [ test "has no effect on a palindrome" <|
+    describe "Main module"
+        [ describe "mixtureMonsters2ViewModel"
+            [ test "配合モンスターが選ばれていないとき、「けっとう」と「あいて」の文字が、灰色で表示される。" <|
                 \_ ->
                     let
-                        palindrome =
-                            [ "ドラゴスライム", "スライム系", "ドラゴン系" ]
+                        actual =
+                            mixtureMonsters2ViewModel <| MixtureMonsters Nothing Nothing
                     in
-                    Expect.equal palindrome (String.reverse palindrome)
-
-            -- Expect.equal is designed to be used in pipeline style, like this.
-            , test "reverses a known string" <|
-                \_ ->
-                    "ABCDEFG"
-                        |> String.reverse
-                        |> Expect.equal "GFEDCBA"
-
-            -- fuzz runs the test 100 times with randomly-generated inputs!
-            , fuzz string "restores the original string if you run it again" <|
-                \randomlyGeneratedString ->
-                    randomlyGeneratedString
-                        |> String.reverse
-                        |> String.reverse
-                        |> Expect.equal randomlyGeneratedString
+                    Expect.equal actual
+                        (MixtureViewModel
+                            (MixtureMonsterViewModel "けっとう" "no-select")
+                            (MixtureMonsterViewModel "あいて" "no-select")
+                        )
             ]
         ]
