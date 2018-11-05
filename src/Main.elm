@@ -77,25 +77,30 @@ view model =
 mixtureMonsters2ViewModel : MixtureMonsters -> MixtureViewModel
 mixtureMonsters2ViewModel { pedigree, target } =
     let
-        { pedigreeName, pedigreeClass } =
-            case pedigree of
+        toNameClass maybeMonster isPedigree =
+            case maybeMonster of
                 Just (Monster name) ->
-                    { pedigreeName = name, pedigreeClass = "" }
+                    { name = name, className = "" }
 
                 Nothing ->
-                    { pedigreeName = "けっとう", pedigreeClass = "no-select" }
+                    { name =
+                        if isPedigree then
+                            "けっとう"
 
-        { targetName, targetClass } =
-            case target of
-                Just (Monster name) ->
-                    { targetName = name, targetClass = "" }
+                        else
+                            "あいて"
+                    , className = "no-select"
+                    }
 
-                Nothing ->
-                    { targetName = "あいて", targetClass = "no-select" }
+        pedigreeNameClass =
+            toNameClass pedigree True
+
+        targetNameClass =
+            toNameClass target False
     in
     MixtureViewModel
-        (MixtureMonsterViewModel pedigreeName pedigreeClass)
-        (MixtureMonsterViewModel targetName targetClass)
+        (MixtureMonsterViewModel pedigreeNameClass.name pedigreeNameClass.className)
+        (MixtureMonsterViewModel targetNameClass.name targetNameClass.className)
 
 
 mixtureViewModel2View : MixtureViewModel -> Html Msg
