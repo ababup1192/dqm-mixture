@@ -31,5 +31,16 @@ suite =
                         MixtureViewModel
                             (MixtureMonsterViewModel "スライム" "")
                             (MixtureMonsterViewModel "あいて" "no-select")
+            , test "「けっとう」がスライム、「あいて」がドラゴンのとき、「スライム」と「ドラゴン」の文字が表示される" <|
+                \_ ->
+                    let
+                        actual =
+                            mixtureMonsters2ViewModel <|
+                                MixtureMonsters (Just <| Monster "スライム") (Just <| Monster "ドラゴン")
+                    in
+                    Expect.equal actual <|
+                        MixtureViewModel
+                            (MixtureMonsterViewModel "スライム" "")
+                            (MixtureMonsterViewModel "ドラゴン" "")
             ]
         ]
