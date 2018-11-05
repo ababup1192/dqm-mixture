@@ -2,6 +2,7 @@ module Main exposing
     ( MixtureMonsterViewModel
     , MixtureMonsters
     , MixtureViewModel
+    , Monster(..)
     , mixtureMonsters2ViewModel
     )
 
