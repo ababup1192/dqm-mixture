@@ -27,3 +27,23 @@ $main-padding: 20px;
 .no-select {
   color: #a0a0a0;
 }
+
+.category {
+  position: relative;
+  width: 190px;
+  border: 1px solid black;
+  margin-top: 150px;
+}
+
+.hovered-category > .active-category > ul > li > div {
+  display: none;
+}
+
+.hovered-category > .active-category > ul > .hovered-hoge > .active-hoge {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  width: 300px;
+  border: 1px solid red;
+}

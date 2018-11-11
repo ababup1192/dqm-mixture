@@ -8,7 +8,7 @@ module Main exposing
 
 import Browser
 import Html exposing (..)
-import Html.Attributes exposing (class, src)
+import Html.Attributes exposing (class, src, style)
 
 
 
@@ -114,9 +114,34 @@ mixtureMonsters2ViewModel { pedigree, target } =
 mixtureViewModel2View : MixtureViewModel -> Html Msg
 mixtureViewModel2View { pedigree, target } =
     div []
-        [ a [ class <| "button is-medium " ++ pedigree.className ]
+        [ a [ class <| "button hovered-category is-medium " ++ pedigree.className ]
             [ text pedigree.text
             , span [ class "nav-icon" ] []
+            , div [ class "category active-category" ]
+                [ p [] [ text "カテゴリー詳細" ]
+                , ul []
+                    [ li [ class "hovered-hoge" ]
+                        [ text "ほげ"
+                        , div [ class "active-hoge" ]
+                            [ ul []
+                                [ li [] [ text "ほげ1" ]
+                                , li [] [ text "ほげ2" ]
+                                , li [] [ text "ほげ3" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "" ]
+                        [ text "ふが"
+                        , div []
+                            [ ul []
+                                [ li [] [ text "ふが1" ]
+                                , li [] [ text "ふが2" ]
+                                , li [] [ text "ふが3" ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         , span [] [ text "X" ]
         , a [ class <| "button is-medium " ++ target.className ]
