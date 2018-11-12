@@ -38,5 +38,6 @@ module.exports = {
       compress: true,
       watchContentBase: true,
       open: 'Google Chrome',
-    }
+    },
+    performance: { hints: false }
 };
