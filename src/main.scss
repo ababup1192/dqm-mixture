@@ -5,6 +5,7 @@ $main-padding: 20px;
 }
 
 .button {
+  display: inline-block;
   width: 350px;
 }
 
@@ -30,9 +31,9 @@ $main-padding: 20px;
 
 .category {
   position: relative;
-  width: 190px;
+  width: 300px;
   border: 1px solid black;
-  margin-top: 150px;
+  top: 10px;
 }
 
 .hovered-category > .active-category > ul > li > div {
@@ -43,7 +44,7 @@ $main-padding: 20px;
   display: block;
   position: absolute;
   top: 0;
-  left: 200px;
+  left: 300px;
   width: 300px;
   border: 1px solid red;
 }
